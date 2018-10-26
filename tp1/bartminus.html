@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bart's punishment board</title>
+        <meta charset="UTF-8">
+        <script>
+            function boardWrite() {
+                var phrases = []
+                for(i = 0, j = 99; i < 100, j >= 0; i++, j--) {
+                    phrases[j] = "<br>" + Number(i + 1) + " - Neste ano não vou comprar bitcoin na alta e vender na baixa!";
+                    document.getElementById("phrase").innerHTML = phrases;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="boardWrite()">Time to be punished!</button>
+            <p id="phrase"></p>
+    </body>
+</html>

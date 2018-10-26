@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF=8">
+        <script>
+            const handGet = function() {
+                var player1 = [
+                    document.getElementById('rock1').checked,
+                    document.getElementById('paper1').checked,
+                    document.getElementById('scissors1').checked
+                ]
+                var player2 = [
+                    document.getElementById('rock2').checked,
+                    document.getElementById('paper2').checked,
+                    document.getElementById('scissors2').checked
+                ]
+                
+                var winner = comparison(player1, player2);
+                if (winner == false) {
+                    return;
+                } else if (winner == "draw") {
+                    document.getElementById("print").innerHTML = "draw! play again!";
+                    setTimeout(function() {
+                        document.getElementById('rock1').checked = false;
+                        document.getElementById('paper1').checked = false;
+                        document.getElementById('scissors1').checked = false;
+                        document.getElementById('rock2').checked = false;
+                        document.getElementById('paper2').checked = false;
+                        document.getElementById('scissors2').checked = false;
+                        document.getElementById("print").innerHTML = "";
+                    }, 2000);
+                } else {
+                    document.getElementById("print").innerHTML = winner;
+                }
+            }
+            
+            const comparison = function(x, y) {
+                if (x[0] == false && x[1] == false && x[2] == false) {
+                    return false;
+                } else if (y[0] == false && y[1] == false && y[2] == false) {
+                    return false;
+                } else {             
+                    if (
+                        (x[0] == true && y[0] == true) 
+                        || (x[1] == true && y[1] == true) 
+                        || (x[2] == true && y[2] == true)
+                    ) {
+                        return "draw";
+                    } else if (
+                        (x[0] == true && y[2] == true) 
+                        || (x[1] == true && y[0] == true) 
+                        || (x[2] == true && y[1] == true)
+                    ) {
+                        return "Player One Wins!";
+                    } else if (
+                        (x[2] == true && y[0] == true) 
+                        || (x[0] == true && y[1] == true) 
+                        || (x[1] == true && y[2] == true)
+                    ) {
+                        return "Player Two Wins!";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Rock Paper Scissors Arena</h1>
+        <form onsubmit="return false">
+            <h2>Player One, choose your weapon!</h2>
+            <div>
+                <label><input type="radio" name="player1" id="rock1" onchange="handGet()">Pedra</label><br>
+                <label><input type="radio" name="player1" id="paper1" onchange="handGet()">Papel</label><br>
+                <label><input type="radio" name="player1" id="scissors1" onchange="handGet()">Tesoura</label><br>
+            </div>
+            <h2>Player Two, choose your weapon!</h2>
+            <div>
+                <label><input type="radio" name="player2" id="rock2" value="0" onchange="handGet()">Pedra</label><br>
+                <label><input type="radio" name="player2" id="paper2" value="1" onchange="handGet()">Papel</label><br>
+                <label><input type="radio" name="player2" id="scissors2" value="2" onchange="handGet()">Tesoura</label><br>
+            </div>
+            <label><br><br><input type="submit" value="ho!">
+        </form>
+        <p id="print"></p>
+    </body>
+</html>

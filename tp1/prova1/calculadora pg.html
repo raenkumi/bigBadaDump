@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function controlador() {
+                var a1 = Number(document.getElementById("a1").value);
+                var n = Number(document.getElementById("n").value)
+                var q = Number(document.getElementById("q").value);
+                var ene = nesimoTermo(a1, q, n);
+                var soma = somaNTermos(a1, q, n);
+                console.log(1 + 2+4+8+16);
+                print(ene, soma);
+            }
+
+            function nesimoTermo(a1, q, n) {
+                return a1 * Math.pow(q, n - 1);
+            }
+
+            function somaNTermos(a1, q, n) {
+                if (q == 1) {
+                    return 0;
+                } else {
+                    return a1 * (Math.pow(q, n) - 1) / (q - 1);
+                }
+            }
+            
+            function print(x, y) {
+                document.getElementById("printEne").innerHTML = "Enésimo termo = " + x;
+                document.getElementById("printSoma").innerHTML = "Soma de N termos = " + y;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Calculadora de Progressão Geométrica</h1>
+        <form onsubmit="return false">
+            <input type="text" id="a1" value=""> = a1<br>
+            <input type="text" id="q" value=""> = q<br>
+            <input type="text" id="n" value=""> = n-ésima posição<br>
+            <input type="submit" value="Calcular" onclick="controlador()">
+        </form>
+        <p id="printEne"></p>
+        <p id="printSoma"></p>
+    </body>
+</html>
