@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bart's punishment board</title>
+        <meta charset="UTF-8">
+        <script>
+            let count = 0;
+            function boardWrite() {
+                console.log(count)
+                switch (count) {
+                    case 0: 
+                        boardWritePlus();
+                        document.getElementById("exercise").innerHTML = "EXERCÍCIO 1";
+                        count++;
+                        break;
+                    case 1: 
+                        boardWriteMinus();
+                        document.getElementById("exercise").innerHTML = "EXERCÍCIO 2";
+                        count++;
+                        break;
+                    case 2: 
+                        boardWrite33();
+                        document.getElementById("exercise").innerHTML = "EXERCÍCIO 3";
+                        count++;
+                        break;
+                    case 3: 
+                        boardWritePlusWhile();
+                        document.getElementById("exercise").innerHTML = "EXERCÍCIO 4";
+                        count++;
+                        break;
+                    case 4: 
+                        boardWritePlusDo();
+                        document.getElementById("exercise").innerHTML = "EXERCÍCIO 5";
+                        count++;
+                        break;
+                    case 5: 
+                        boardWritePlusOdds();
+                        document.getElementById("exercise").innerHTML = "EXERCÍCIO 6";
+                        count++;
+                        break;
+                    case 6: 
+                        boardWritePlusEvens();
+                        document.getElementById("exercise").innerHTML = "EXERCÍCIO 7";
+                        count++;
+                        break;
+                    case 7: 
+                        boardWriteSimultaneous();
+                        document.getElementById("exercise").innerHTML = "EXERCÍCIO 8";
+                        count++;
+                        break;
+                }
+            }
+            // EXERCÍCIO 1
+            function boardWritePlus() {
+                let phrases = [];
+                for(i = 0; i < 100; i++) {
+                    phrases[i] = "<br>" + Number(i + 1) + " - Neste ano não vou comprar bitcoin na alta e vender na baixa!";
+                    document.getElementById("phrase").innerHTML = phrases;
+                }
+            }
+            // EXERCÍCIO 2
+            function boardWriteMinus() {
+                let phrases = [];
+                for(i = 0, j = 99; i < 100, j >= 0; i++, j--) {
+                    phrases[j] = "<br>" + Number(i + 1) + " - Neste ano não vou comprar bitcoin na alta e vender na baixa!";
+                    document.getElementById("phrase").innerHTML = phrases;
+                }
+            }
+            // EXERCÍCIO 3
+            function boardWrite33() {
+                let phrases = [];
+                for(i = 2; i < 33; i++) {
+                    phrases[i] = "<br>" + Number(i + 1) + " - Neste ano não vou comprar bitcoin na alta e vender na baixa!";
+                    document.getElementById("phrase").innerHTML = phrases;
+                }
+            }
+            // EXERCÍCIO 4
+            function boardWritePlusWhile() {
+                let phrases = [];
+                let i = 0;
+                while(i < 100) {
+                    phrases[i] = "<br>" + Number(i + 1) + " - Neste ano não vou comprar bitcoin na alta e vender na baixa!";
+                    document.getElementById("phrase").innerHTML = phrases;
+                    i++;
+                }
+            }
+            // EXERCÍCIO 5
+            function boardWritePlusDo() {
+                let phrases = [];
+                let i = 0
+                do {
+                    phrases[i] = "<br>" + Number(i + 1) + " - Neste ano não vou comprar bitcoin na alta e vender na baixa!";
+                    document.getElementById("phrase").innerHTML = phrases;
+                    i++;
+                }
+                while(i < 100);
+            }
+            // EXERCÍCIO 6
+            function boardWritePlusOdds() {
+                let phrases = [];
+                for(i = 0; i < 100; i+=2) {
+                    phrases[i] = "<br>" + Number(i + 1) + " - Neste ano não vou comprar bitcoin na alta e vender na baixa!";
+                    document.getElementById("phrase").innerHTML = phrases;
+                }
+            }
+            // EXERCÍCIO 7
+            function boardWritePlusEvens() {
+                let phrases = [];
+                for(i = 1; i < 100; i+=2) {
+                    phrases[i] = "<br>" + Number(i + 1) + " - Neste ano não vou comprar bitcoin na alta e vender na baixa!";
+                    document.getElementById("phrase").innerHTML = phrases;
+                }
+            }
+            // EXERCÍCIO EXTRA
+            function boardWriteSimultaneous() {
+                let numbers = [];
+                for(i = 0, j = 100; i <= 100, j >= 0; i++, j--) {
+                    numbers[i] = "<br>" + [i, j];
+                    document.getElementById("phrase").innerHTML = numbers;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="boardWrite()">Time to be punished!</button>
+            <p id="exercise"></p>
+            <p id="phrase"></p>
+    </body>
+</html>
