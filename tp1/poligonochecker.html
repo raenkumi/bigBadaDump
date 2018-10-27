@@ -3,20 +3,33 @@
     <head>
         <title>Poligon Checker</title>
         <script>
-            var rectangles = {}
+            let rectangles = []
             let timesClicked = 0;
 
             document.onmousemove = function() {
-                var position = {
+                let positionHolder = []
+                let currentPosition = {
                     x: event.pageX,
                     y: event.pageY,
                 }
+                
                 for (i = 0; i < timesClicked; i++) {
-                    let rx1 = rectangles[i][2];
-                    //let rx2 = rectangles.i[4];
-                    if (position.x > rx1){
-                        console.log(position.x, rx1);
+                    if (currentPosition.x >= 30 
+                        && currentPosition.x <= rectangles[i][2]+30
+                        && currentPosition.y >= 30 
+                        && currentPosition.y <= rectangles[i][3]+50) {
+                        positionHolder[i] = true;
+                    } else {
+                        positionHolder[i] = false;
                     }
+                }
+
+                if (timesClicked == 0) {
+                    return;
+                } else if (positionHolder.some(function(x) {return x == true})) {
+                    document.getElementById("print").innerHTML = "mouse is IN the rectagle";
+                } else {
+                    document.getElementById("print").innerHTML = "mouse is OUT of the rectagle";
                 }
             }
 
@@ -32,10 +45,9 @@
             }
 
             function polygonPrint(r) {
-                var c = document.getElementById("canvas");
-                var ctx = c.getContext("2d");
+                let c = document.getElementById("canvas");
+                let ctx = c.getContext("2d");
                 ctx.rect(r.x1, r.y1, r.x2, r.y2);
-                console.log(r.x1, r.y1, r.x2, r.y2);
                 ctx.lineWidth = 2;
                 ctx.stroke();
             }
@@ -48,10 +60,13 @@
         </script>
         <style>
             * {margin:0; padding:0}
+            button {display:block}
+            p {margin:15px; font-size:16px}
         </style>
     </head>
     <body>
         <button value="" onclick="polygonDraw()">Desenhar Retângulo!</button>
         <canvas id="canvas" width="900" height="500" style="border:1px solid #d3d3d3;"></canvas>
+        <p id="print"></p>
     </body>
 </html>
