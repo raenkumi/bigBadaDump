@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bart Punishment Table ES6</title>
+        <meta charset="UTF=8">
+        <script>
+            const punishment = () => {
+                let phrases = ["Não vou mais ser um cuzão da porra", "certo"]
+                // for (i = 0; i < 100; i++) {
+                //     phrases[i] = (i + 1) + " - Não vou mais ser um cuzão da porra";
+                // }
+                for (let x of phrases) {
+                    console.log(x);
+                    document.getElementById("print").innerHTML = x;
+                }
+            }
+
+            const punishment1 = () => {
+                let phrases = [
+                    "1 - cc de com força", 
+                    "2 - cc de com força", 
+                    "3 - cc de com força", 
+                    "4 - cc de com força", 
+                    "5 - cc de com força"
+                ];
+                for (let value of phrases) {
+                    console.log(value);
+                }
+            }
+
+            const punishment2 = () => {
+                let iterable = [10, 20, 30];
+
+                for (const value of iterable) {
+                    console.log(value);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1 id="title"></h1>
+        <p id="print"></p>
+        <button onclick="punishment()">Time to be punished</button>
+    </body>
+</html>

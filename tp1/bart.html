@@ -6,7 +6,6 @@
         <script>
             let count = 0;
             function boardWrite() {
-                console.log(count)
                 switch (count) {
                     case 0: 
                         boardWritePlus();
@@ -55,6 +54,9 @@
                 let phrases = [];
                 for(i = 0; i < 100; i++) {
                     phrases[i] = "<br>" + Number(i + 1) + " - Neste ano não vou comprar bitcoin na alta e vender na baixa!";
+                }
+                for (let value of phrases) {
+                    value++
                     document.getElementById("phrase").innerHTML = phrases;
                 }
             }
