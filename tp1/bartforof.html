@@ -5,13 +5,14 @@
         <meta charset="UTF=8">
         <script>
             const punishment = () => {
-                let phrases = ["Não vou mais ser um cuzão da porra", "certo"]
-                // for (i = 0; i < 100; i++) {
-                //     phrases[i] = (i + 1) + " - Não vou mais ser um cuzão da porra";
-                // }
+                let phrases = []
+                for (i = 0; i < 100; i++) {
+                    phrases[i] = (i + 1) + " - Não vou mais ser um cuzão da porra";
+                }
                 for (let x of phrases) {
+                    let print = x
                     console.log(x);
-                    document.getElementById("print").innerHTML = x;
+                    document.getElementById("print").innerHTML = print;
                 }
             }
 
