@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>class test</title>
+        <script>
+            class pocotucho {
+                static ride() {
+                    console.log("pocotucho has broken down");
+                }
+                static fixed() {
+                    console.log("pocotucho has been fixed");
+                }
+            }
+            
+            const rollercoaster = () => {
+                class doido extends pocotucho.ride {
+                    running() {
+                        console.log("this shit is bananas");
+                    }
+                }
+            }
+
+            pocotucho.ride();
+            pocotucho.fixed();
+            rollercoaster();
+            console.log(pocotucho);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

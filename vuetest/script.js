@@ -4,4 +4,3 @@ var product = new Vue({
         stuff: 'parada'
     }
 })
-
